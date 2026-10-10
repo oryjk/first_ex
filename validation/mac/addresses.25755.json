@@ -1,0 +1,25 @@
+{
+    "Version": 25755,
+    "platform": "mac",
+    "architecture": "arm64",
+    "binary_sha256": "b3c5bb2ddf6597a35e8a6d15a63c91379d468ff8c5129c8d205154460ca8535e",
+    "hook_sha256": "762a754301884a9d5c8ecbbf1fc0bf69c94456fbbe41006f8eb3bc152d8c0b21",
+    "config_sha256": "f8d8f0f42cc15608dbdcfb58d9b4cf8bc25a86584d7d6bbf2664c53661822331",
+    "runtime_verified": true,
+    "cdp_policy_source": "verified-profile",
+    "verification": "previous exact binary/config/hook validation",
+    "evidence_files": [
+        "/Users/carlwang/Documents/wmpf-first-25755/cdp-final-verification.json",
+        "/Users/carlwang/Documents/wmpf-first-25755/original-hook-experiment/restored-cdp-result.json"
+    ],
+    "historical_runtime_checks": [
+        "Runtime.evaluate(1+1) returned 2",
+        "Debugger.getScriptSource read real app-service.js",
+        "DOM.getDocument returned page-frame.html document",
+        "Mini program home page displayed after restart"
+    ],
+    "runtime_limitations": [
+        "Only mac/arm64 WMPF 7.25755 runtime-tested",
+        "No runtime test of older mac versions or Windows"
+    ]
+}

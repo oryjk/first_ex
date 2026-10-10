@@ -1,0 +1,35 @@
+test_apply_and_cli_rollback (test_installer.InstallerCLITests) ... ok
+test_broken_hook_syntax_blocks_before_replacement (test_installer.InstallerCLITests) ... ok
+test_invalid_json_is_not_bypassed_by_allow_unverified (test_installer.InstallerCLITests) ... ok
+test_native_windows_flat_json_can_be_installed (test_installer.InstallerCLITests) ... ok
+test_preview_does_not_replace_anything (test_installer.InstallerCLITests) ... ok
+test_unverified_config_blocks_before_any_file_replacement (test_installer.InstallerCLITests) ... ok
+test_complete_binary_scan_derives_literal_expected_config (test_native_scan.NativeCandidateTests) ... ok
+test_guard_in_neighbor_function_is_not_selected (test_native_scan.NativeCandidateTests) ... ok
+test_object_chain_from_other_parameter_is_rejected (test_native_scan.NativeCandidateTests) ... ok
+test_runtime_profile_does_not_hide_static_analysis_limits (test_native_scan.NativeCandidateTests) ... ok
+test_two_valid_candidates_are_rejected (test_native_scan.NativeCandidateTests) ... ok
+test_adjacent_add_resolves_real_reference (test_regressions.DecoderRegressionTests) ... ok
+test_overwritten_adrp_register_does_not_create_reference (test_regressions.DecoderRegressionTests) ... ok
+test_sub_does_not_create_pretty_string_reference (test_regressions.DecoderRegressionTests) ... ok
+test_backup_and_rollback_restore_old_and_remove_new_files (test_safety.AtomicFileTests) ... ok
+test_changed_hook_invalidates_previous_runtime_validation (test_safety.AtomicFileTests) ... ok
+test_failed_replace_preserves_old_file (test_safety.AtomicFileTests) ... ok
+test_failed_second_install_restores_first_and_old_config (test_safety.AtomicFileTests) ... ok
+test_rollback_rejects_changed_destination (test_safety.AtomicFileTests) ... ok
+test_abi_proof_rejects_this_overwritten_on_one_path (test_safety.ScannerSafetyTests) ... ok
+test_atomic_store_status_invalidates_this_register (test_safety.ScannerSafetyTests) ... ok
+test_atomic_swap_result_invalidates_this_register (test_safety.ScannerSafetyTests) ... ok
+test_four_hops_cannot_be_silently_truncated (test_safety.ScannerSafetyTests) ... ok
+test_incompatible_third_hop_is_rejected (test_safety.ScannerSafetyTests) ... ok
+test_macho_vmaddr_is_not_a_file_offset (test_safety.ScannerSafetyTests) ... ok
+test_neighbor_after_return_is_not_reachable (test_safety.ScannerSafetyTests) ... ok
+test_three_hop_signature_decodes_expected_offsets (test_safety.ScannerSafetyTests) ... ok
+test_unknown_version_requires_explicit_cdp_choice (test_safety.ScannerSafetyTests) ... ok
+test_writeback_load_invalidates_this_base_register (test_safety.ScannerSafetyTests) ... ok
+test_generation_failure_does_not_install_hook (test_update.UpdatePipelineTests) ... ok
+
+----------------------------------------------------------------------
+Ran 30 tests in 0.504s
+
+OK
