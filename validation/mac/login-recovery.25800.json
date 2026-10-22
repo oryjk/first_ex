@@ -1,0 +1,56 @@
+{
+    "verified_at": "2026-10-22T10:21:31.401960+00:00",
+    "trigger": "User reported WeChat exiting after login after reactivating intermediate snapshot.",
+    "action": "Restored 8 original official files using original backup; First closed.",
+    "restored_files": [
+        {
+            "relative_path": "Contents/MacOS/WeChatAppEx.app/Contents/_CodeSignature/CodeResources",
+            "sha256": "73b33c0d3924f290391dff66d0815f11345b14dfdcceb29e7839508b6470b4bf"
+        },
+        {
+            "relative_path": "Contents/MacOS/WeChatAppEx.app/Contents/MacOS/WeChatAppEx",
+            "sha256": "540adef74c6cfed0bad3906d5460c0dba14def606d86db863183b67aeccf3991"
+        },
+        {
+            "relative_path": "Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeChatAppEx Helper.app/Contents/MacOS/WeChatAppEx Helper",
+            "sha256": "c1b61d572d4dec40303b280713a3f633bea96124e634d3e338f612ac15c959bf"
+        },
+        {
+            "relative_path": "Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeChatAppEx Helper (GPU).app/Contents/MacOS/WeChatAppEx Helper (GPU)",
+            "sha256": "4422a77c6c4c093d7404329cbafc0b49cdcfbf674d5adb9c958953161ae9d90e"
+        },
+        {
+            "relative_path": "Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeChatAppEx Helper (Plugin).app/Contents/MacOS/WeChatAppEx Helper (Plugin)",
+            "sha256": "08097db03935a8eb43a2c08ed9062aeed472305a30e19f69bda5628caa4fd596"
+        },
+        {
+            "relative_path": "Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeChatAppEx Helper (Renderer).app/Contents/MacOS/WeChatAppEx Helper (Renderer)",
+            "sha256": "54e5542ed950e98092407982da638cc44f178910c53b879d925cf8e5edc8a52c"
+        },
+        {
+            "relative_path": "Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeApp.app/Contents/_CodeSignature/CodeResources",
+            "sha256": "532dac42ab2e3bdc5396a1092ac7943df10920d01500dca4f4f04ab8dc25aea8"
+        },
+        {
+            "relative_path": "Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeApp.app/Contents/MacOS/WeApp",
+            "sha256": "3e1b82fe88909522b492d265aa213284319ec65b41fc2f6367a347d30f6625e4"
+        }
+    ],
+    "whole_app_deep_strict_verification": true,
+    "official_wechatappex_signature_restored": true,
+    "first_closed": true,
+    "login_stability_verified": false,
+    "status": "Official original files and whole-app signature restored. User still reports login exit; main PID remains alive and no new crash report found. Investigating UI/login abnormality without modifying WeChat.",
+    "user_report_after_restore": "登录后仍闪退",
+    "latest_readonly_observation": {
+        "at": "2026-10-22T10:24:32.340601+00:00",
+        "main_pid": 105,
+        "main_start_time_local": "2026-10-22T18:21:32+08:00",
+        "main_process_still_alive": true,
+        "new_wechat_crash_report_found": false,
+        "ax_state": "Main chat window present after login",
+        "screenshot": "Blank white surface from computer-use capture; no proof of process crash from this capture",
+        "first_running": false
+    },
+    "user_constraint": "Only change First Frida dependencies and scripts going forward. Do not re-sign or modify WeChat files or system protection settings."
+}

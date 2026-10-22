@@ -7,13 +7,14 @@
     "config_sha256": "2cae58763e9ec8720bb401d1c696860afb9179123498f0c4e9091b2dedc151e0",
     "runtime_verified": false,
     "cdp_policy_source": "explicit-native-candidate",
-    "verification": "User-selected 15:22/15:25 snapshot restored; all 8 file hashes and hook/config match. Retest could not reach injection because no WeChatAppEx target existed; Mini Programs entry reproduced relogin. Snapshot retained, First stopped. Full CDP unverified.",
+    "verification": "Intermediate signature experiment reverted after user reported login exit. Eight official original files and whole-app signature restored and verified. First closed; user prohibits further WeChat re-signing or application/system protection changes. Normal login issue unresolved; full CDP unverified.",
     "evidence_files": [
         "validation/mac/runtime-attempt.25800.json",
         "validation/mac/signature-check.25800.json",
         "validation/mac/ready-check.25800.json",
         "validation/mac/restore-check.25800.json",
         "validation/mac/original-control.25800.json",
-        "validation/mac/mid-restore.25800.json"
+        "validation/mac/mid-restore.25800.json",
+        "validation/mac/login-recovery.25800.json"
     ]
 }

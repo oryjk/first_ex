@@ -44,8 +44,8 @@
     },
     "whole_app_official_signature_valid": false,
     "runtime_verified": false,
-    "status": "Exact snapshot restored and verified. First was reopened and started after user-confirmed login, but WeChatAppEx target was absent; opening Mini Programs reproduced relogin before target creation. Snapshot retained.",
-    "retention": "Keep this user-selected state after injection test; do not automatically restore official signatures.",
+    "status": "Historical intermediate snapshot restoration only. It has now been reverted to official original files; see login-recovery.25800.json.",
+    "retention": "Superseded: user reported login exit; official original files restored. User now forbids further WeChat re-signing/modification; do not reactivate this experiment.",
     "injection_retest": {
         "log_time_local": "2026-10-22T18:13:05+08:00",
         "first_error": "未找到微信小程序主进程，请先启动微信并打开小程序",
