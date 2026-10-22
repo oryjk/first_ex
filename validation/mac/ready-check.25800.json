@@ -24,7 +24,7 @@
         "passed": 35,
         "scope": "Native-boundary tests execute actual JS for mac 17078, 25755, 25800, Windows legacy/new module selection and flat/Arch configs; failure never reports ready. Other native versions not runtime-tested."
     },
-    "blocker": "No-injection control reproduced relogin; whole-app signature invalid after partial re-signing. Original official backup passes deep strict verification; rollback pending admin terminal execution.",
+    "blocker": "Original official signatures restored and whole-app integrity independently verified. First stopped; original-app login and Mini Programs control pending. Full CDP not reached.",
     "runtime_verified": false,
     "pending": [
         "Runtime.evaluate == 2",
@@ -42,6 +42,6 @@
         "whole_app_codesign_verify": "failed: nested code is modified or invalid",
         "original_backup_codesign_verify": "passed",
         "interpretation": "Relogin reproduces without hook execution. Restoring original official signatures is required before further login testing; root cause of relogin is not yet confirmed.",
-        "rollback_status": "Prepared 8-file restore script. Direct write denied; user terminal administrator authentication needed."
+        "rollback_status": "Completed by user; independently verified all 8 original file hashes and whole-app deep strict signature. See restore-check.25800.json."
     }
 }

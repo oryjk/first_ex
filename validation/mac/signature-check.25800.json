@@ -53,6 +53,6 @@
         "installed_app": "failed: nested code is modified or invalid",
         "original_backup": "passed",
         "limitation": "Individual ad-hoc signature validation does not establish top-level nested signature integrity.",
-        "status": "First stopped; original signature restore script prepared, awaiting user admin terminal execution."
+        "status": "Rolled back to original official signatures; all 8 original hashes match and whole-app deep strict verification passed. See restore-check.25800.json."
     }
 }

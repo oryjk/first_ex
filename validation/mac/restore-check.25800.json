@@ -1,0 +1,43 @@
+{
+    "verified_at": "2026-10-22T08:04:36.731580+00:00",
+    "restored_files": [
+        {
+            "relative_path": "Contents/MacOS/WeChatAppEx.app/Contents/_CodeSignature/CodeResources",
+            "restored_sha256": "73b33c0d3924f290391dff66d0815f11345b14dfdcceb29e7839508b6470b4bf"
+        },
+        {
+            "relative_path": "Contents/MacOS/WeChatAppEx.app/Contents/MacOS/WeChatAppEx",
+            "restored_sha256": "540adef74c6cfed0bad3906d5460c0dba14def606d86db863183b67aeccf3991"
+        },
+        {
+            "relative_path": "Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeChatAppEx Helper.app/Contents/MacOS/WeChatAppEx Helper",
+            "restored_sha256": "c1b61d572d4dec40303b280713a3f633bea96124e634d3e338f612ac15c959bf"
+        },
+        {
+            "relative_path": "Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeChatAppEx Helper (GPU).app/Contents/MacOS/WeChatAppEx Helper (GPU)",
+            "restored_sha256": "4422a77c6c4c093d7404329cbafc0b49cdcfbf674d5adb9c958953161ae9d90e"
+        },
+        {
+            "relative_path": "Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeChatAppEx Helper (Plugin).app/Contents/MacOS/WeChatAppEx Helper (Plugin)",
+            "restored_sha256": "08097db03935a8eb43a2c08ed9062aeed472305a30e19f69bda5628caa4fd596"
+        },
+        {
+            "relative_path": "Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeChatAppEx Helper (Renderer).app/Contents/MacOS/WeChatAppEx Helper (Renderer)",
+            "restored_sha256": "54e5542ed950e98092407982da638cc44f178910c53b879d925cf8e5edc8a52c"
+        },
+        {
+            "relative_path": "Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeApp.app/Contents/_CodeSignature/CodeResources",
+            "restored_sha256": "532dac42ab2e3bdc5396a1092ac7943df10920d01500dca4f4f04ab8dc25aea8"
+        },
+        {
+            "relative_path": "Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeApp.app/Contents/MacOS/WeApp",
+            "restored_sha256": "3e1b82fe88909522b492d265aa213284319ec65b41fc2f6367a347d30f6625e4"
+        }
+    ],
+    "whole_app_deep_strict_verification": true,
+    "signature_authority": "Developer ID Application: Tencent Mobile International Limited (5A4RE8SF68)",
+    "wechatappex_signature_flags": "0x10000(runtime)",
+    "first_stopped": true,
+    "runtime_verified": false,
+    "status": "Original official signatures independently verified; awaiting phone login for original-app Mini Programs control."
+}
