@@ -4,6 +4,8 @@
 
 2026-10-22：First 1.1.4 重新启动后已识别 25800，原“缺少匹配的偏移配置”错误消除；随后 Frida 附加 WeChatAppEx 时返回 PermissionDeniedError。当前微信恢复为腾讯官方 hardened runtime 签名，未含 get-task-allow，SIP 开启；历史记录显示此前成功环境使用过 ad-hoc 签名，微信更新后需单独诊断该前提。本次没有修改微信签名、权限或 SIP，25800 的 runtime_verified 保持 false。详见 validation/mac/runtime-attempt.25800.json。
 
+后续经用户明确授权，已完整备份 `/Applications/WeChat.app` 到本地 `backups/signatures/20261022T065918Z/WeChat.app`，由用户在终端完成 WeChatAppEx 与五个 Helper 的 ad-hoc 重签名，六个目标签名均已独立验证。Framework arm64 摘要未变化，SIP 仍开启。微信停在“需在手机上完成登录”，尚未进行本轮 First 注入/CDP 验证，25800 仍未标记为运行验证通过；见 `validation/mac/signature-check.25800.json`。备份与签名脚本仅保存在本地忽略目录，不提交微信二进制。
+
 ## 文件
 
 ```text

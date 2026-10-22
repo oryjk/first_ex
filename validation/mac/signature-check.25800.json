@@ -1,0 +1,50 @@
+{
+    "verified_at": "2026-10-22T07:08:20.620625+00:00",
+    "authorized_by": "User explicitly authorized backup, quit WeChat, ad-hoc re-signing and First runtime verification",
+    "backup": "backups/signatures/20261022T065918Z/WeChat.app",
+    "backup_method": "APFS copy-on-write clone, cp -cRp; full application including signatures and resources",
+    "targets": [
+        {
+            "relative_path": "Contents/MacOS/WeChatAppEx.app/Contents/MacOS/WeChatAppEx",
+            "sha256_after": "c60505579a79026edc77f39ccbdec82040f05e51b3994044db62aa8d3c8749f8",
+            "signature_flags": "0x2(adhoc)",
+            "codesign_verify": true
+        },
+        {
+            "relative_path": "Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeApp.app/Contents/MacOS/WeApp",
+            "sha256_after": "1688a00cb2b25ecbfe09eae2de36c3f868552f09bf7709b0dc1705af60ff463b",
+            "signature_flags": "0x2(adhoc)",
+            "codesign_verify": true
+        },
+        {
+            "relative_path": "Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeChatAppEx Helper.app/Contents/MacOS/WeChatAppEx Helper",
+            "sha256_after": "f2df36c89e5775d514fd92ee54240b6204831129157bb9790b015871d6d79f55",
+            "signature_flags": "0x2(adhoc)",
+            "codesign_verify": true
+        },
+        {
+            "relative_path": "Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeChatAppEx Helper (GPU).app/Contents/MacOS/WeChatAppEx Helper (GPU)",
+            "sha256_after": "7a0ef6efb659314ffd400341fef7c270b91b289a763188e68b28fa32d50b3552",
+            "signature_flags": "0x2(adhoc)",
+            "codesign_verify": true
+        },
+        {
+            "relative_path": "Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeChatAppEx Helper (Plugin).app/Contents/MacOS/WeChatAppEx Helper (Plugin)",
+            "sha256_after": "0ba30373e3d17032a7351357205a60033235d2d3a87fe300d55cebec450f4381",
+            "signature_flags": "0x2(adhoc)",
+            "codesign_verify": true
+        },
+        {
+            "relative_path": "Contents/MacOS/WeChatAppEx.app/Contents/Frameworks/WeChatAppEx Framework.framework/Versions/C/Helpers/WeChatAppEx Helper (Renderer).app/Contents/MacOS/WeChatAppEx Helper (Renderer)",
+            "sha256_after": "89eeb6780eb8b1d297037a6f04a246aaf36e70316bd0da5fec3154a1cc9828b2",
+            "signature_flags": "0x2(adhoc)",
+            "codesign_verify": true
+        }
+    ],
+    "sip": "enabled",
+    "framework_arm64_sha256": "9b68c1b32909ffc9a42269751ef0c5850a5c4b7732909e28ae8ac9c09f8f0974",
+    "hook_sha256": "762a754301884a9d5c8ecbbf1fc0bf69c94456fbbe41006f8eb3bc152d8c0b21",
+    "config_sha256": "2cae58763e9ec8720bb401d1c696860afb9179123498f0c4e9091b2dedc151e0",
+    "runtime_verified": false,
+    "status": "Signatures verified. WeChat awaiting phone login confirmation; First CDP validation pending."
+}
