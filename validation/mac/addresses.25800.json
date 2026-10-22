@@ -7,7 +7,7 @@
     "config_sha256": "2cae58763e9ec8720bb401d1c696860afb9179123498f0c4e9091b2dedc151e0",
     "runtime_verified": false,
     "cdp_policy_source": "explicit-native-candidate",
-    "verification": "First 1.1.4 accepted readiness on two process IDs after explicit handshake fix; full CDP validation blocked by repeated WeChat relogin, no-injection control pending",
+    "verification": "First readiness fixed and injection confirmed; full CDP validation not reached. No-injection relogin reproduced; original signature restoration pending.",
     "evidence_files": [
         "validation/mac/runtime-attempt.25800.json",
         "validation/mac/signature-check.25800.json",

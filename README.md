@@ -8,7 +8,9 @@
 
 后续修复：First 1.1.4 要求明确的 `first-hook-ready` 消息，维护版旧脚本没有发送，导致附加成功后仍报“Hook 初始化超时（10 秒）”。补齐消息后，两个进程均被 First 判定为已注入、调试就绪。35 项测试通过，包含新旧 mac 配置与 Windows 顶层/Arch 格式的初始化注册回归，以及失败不能发送 ready 的检查。真实旧版 mac 和 Windows 未重新运行验证；25755 历史验证绑定旧 hook 摘要，不能作为当前 hook 的运行验证。
 
-当前仍存在微信反复提示“为了账号安全，请重新登录”的独立问题，正在进行停止 First、干净重启微信后的对照。实际小程序连接、表达式执行、真实 app-service.js 源码和页面/重启复查均未完成，25800 的 runtime_verified 保持 false。详见 `validation/mac/ready-check.25800.json`。
+停止 First 并彻底重启微信、扫码登录后的对照中，打开小程序入口仍出现“为了账号安全，请重新登录”。进一步检查发现：六个单独程序的签名通过校验，但修改嵌套签名后微信顶层整包 `codesign --verify --deep --strict` 报 `nested code is modified or invalid`；原始完整备份通过整包校验。因此不应继续在当前签名状态反复登录。已准备本地 `backups/signatures/20261022T065918Z/restore_original.sh`，恢复六个原始程序和两个签名资源，共八个已变动文件，并要求整包校验通过。执行需要用户终端管理员认证；回滚尚未完成。登录异常的因果关系还需恢复官方签名后确认。
+
+实际小程序连接、表达式执行、真实 app-service.js 源码和页面/重启复查均未完成，25800 的 runtime_verified 保持 false。详见 `validation/mac/ready-check.25800.json`。目前只确认缺版本配置和 First 握手超时已解决，不能宣称已能正常调试。
 
 ## 文件
 

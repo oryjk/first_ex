@@ -24,12 +24,24 @@
         "passed": 35,
         "scope": "Native-boundary tests execute actual JS for mac 17078, 25755, 25800, Windows legacy/new module selection and flat/Arch configs; failure never reports ready. Other native versions not runtime-tested."
     },
-    "blocker": "Repeated WeChat account-security relogin prompt while opening Mini Programs; First stopped and WeChat restarted for no-injection control.",
+    "blocker": "No-injection control reproduced relogin; whole-app signature invalid after partial re-signing. Original official backup passes deep strict verification; rollback pending admin terminal execution.",
     "runtime_verified": false,
     "pending": [
         "Runtime.evaluate == 2",
         "real app-service.js source",
         "normal mini program page",
         "independent restart CDP recheck"
-    ]
+    ],
+    "no_injection_control": {
+        "recorded_at": "2026-10-22T07:56:40.977168+00:00",
+        "first_stopped": true,
+        "wechat_fully_restarted": true,
+        "phone_login_confirmed_by_user": true,
+        "action": "Discovery > Mini Programs",
+        "result": "Same account-security relogin prompt; no CDP client connection",
+        "whole_app_codesign_verify": "failed: nested code is modified or invalid",
+        "original_backup_codesign_verify": "passed",
+        "interpretation": "Relogin reproduces without hook execution. Restoring original official signatures is required before further login testing; root cause of relogin is not yet confirmed.",
+        "rollback_status": "Prepared 8-file restore script. Direct write denied; user terminal administrator authentication needed."
+    }
 }
