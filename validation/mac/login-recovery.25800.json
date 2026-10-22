@@ -40,7 +40,7 @@
     "official_wechatappex_signature_restored": true,
     "first_closed": true,
     "login_stability_verified": false,
-    "status": "Official original files and whole-app signature restored. User still reports login exit; main PID remains alive and no new crash report found. Investigating UI/login abnormality without modifying WeChat.",
+    "status": "Official files restored. Main window disappearance observed as transition to login window with account-security relogin prompt; main process remains alive. Underlying forced-logout cause unknown. No further WeChat changes authorized.",
     "user_report_after_restore": "登录后仍闪退",
     "latest_readonly_observation": {
         "at": "2026-10-22T10:24:32.340601+00:00",
@@ -52,5 +52,31 @@
         "screenshot": "Blank white surface from computer-use capture; no proof of process crash from this capture",
         "first_running": false
     },
-    "user_constraint": "Only change First Frida dependencies and scripts going forward. Do not re-sign or modify WeChat files or system protection settings."
+    "user_constraint": "Only change First Frida dependencies and scripts going forward. Do not re-sign or modify WeChat files or system protection settings.",
+    "clarified_user_symptom": "主窗口突然消失",
+    "observed_ui_after_window_restore": {
+        "at": "2026-10-22T10:32:28.940851+00:00",
+        "actions": [
+            "Window > Center",
+            "Window > WeChat (makeKeyAndOrderFront)"
+        ],
+        "result": "Login window with modal: 为了你的账号安全，请重新登录。",
+        "main_pid": 105,
+        "process_still_alive": true,
+        "classification": "Observed logout/login-window transition; no process crash established.",
+        "system_launch_environment": {
+            "DYLD_INSERT_LIBRARIES": "unset",
+            "DYLD_LIBRARY_PATH": "unset",
+            "DYLD_FRAMEWORK_PATH": "unset",
+            "FRIDA_VERSION": "unset"
+        },
+        "first_running": false
+    },
+    "system_login_log_check": {
+        "checked_at": "2026-10-22T10:33:39.574720+00:00",
+        "scope": "Last 15 minutes of unified logs from WeChat and WeChatAppEx",
+        "total_records": 2952,
+        "login_related_keyword_matches": 75,
+        "result": "Matches were system-framework session/token events; no client forced-logout reason code was identified. Auth payloads were not retained."
+    }
 }
