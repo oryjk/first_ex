@@ -1,6 +1,6 @@
 # First / WeChatAppEx 适配文件
 
-这里是维护源。mac arm64 / WMPF 7.25755 有旧脚本的历史运行验证；7.25800 已完成静态定位，并在临时重签名状态通过 First 1.1.4 注入，尚未完成完整 CDP 运行验证。当前微信已恢复官方签名，First 保持停止。共享 hook.js 仅增加所有钩子注册成功后的 `first-hook-ready` 握手，不改动现有钩子行为。Windows 目录暂为空，不能把 mac 偏移用于 Windows。
+这里是维护源。mac arm64 / WMPF 7.25755 有旧脚本的历史运行验证；7.25800 已完成静态定位，并在临时重签名状态通过 First 1.1.4 注入，尚未完成完整 CDP 运行验证。用户现已指定恢复今天中途能 hook 的状态，八个快照文件及 hook/JSON 摘要均已核验一致；复测时缺少 WeChatAppEx 目标进程，尚未走到注入阶段。共享 hook.js 仅增加所有钩子注册成功后的 `first-hook-ready` 握手，不改动现有钩子行为。Windows 目录暂为空，不能把 mac 偏移用于 Windows。
 
 2026-10-22 首次尝试：增加 25800 配置后，原“缺少匹配的偏移配置”错误消除；随后 Frida 附加时返回 PermissionDeniedError。当时微信使用腾讯官方 hardened runtime 签名，未含 get-task-allow，SIP 开启。原始记录见 `validation/mac/runtime-attempt.25800.json`。
 
@@ -11,6 +11,8 @@
 停止 First 并彻底重启微信、扫码登录后的对照中，打开小程序入口仍出现“为了账号安全，请重新登录”。进一步检查发现：六个单独程序的签名通过校验，但修改嵌套签名后微信顶层整包 `codesign --verify --deep --strict` 报 `nested code is modified or invalid`；原始完整备份通过整包校验。用户已执行本地 `backups/signatures/20261022T065918Z/restore_original.sh` 恢复六个原始程序和两个签名资源，共八个文件。已独立确认八个原始哈希完全一致、微信整包深度严格校验通过、腾讯官方 hardened runtime 签名恢复；见 `validation/mac/restore-check.25800.json`。不要将本次只重签六个程序的实验作为推荐修复流程。
 
 恢复官方签名、重新启动并扫码登录后，First 全程保持停止，点击小程序入口依然复现相同提示。内核 csops 显示微信和 WeChatAppEx 均使用 hardened runtime，整包签名校验仍通过。故不能把登录提示归因于 Frida 注入或重签名；该微信登录异常原因未确定，当前也没有取得正常小程序页面用于 CDP 验证。记录见 `validation/mac/original-control.25800.json`。
+
+用户随后明确选择恢复今天 15:22/15:25 曾成功注入的中途状态。已从 `backups/signature-rollback/20261022T075554Z-b0927576d8db` 原样恢复八个文件，六个单独程序的签名检查通过；hook/JSON 与成功时相同。此快照仍有前述整包签名限制，不代表完整 CDP 已验证。用户确认扫码登录后，重新打开并启动 First，18:13:05 返回“未找到微信小程序主进程”；系统进程列表确实没有 WeChatAppEx/WeApp。点击小程序入口再次出现重新登录提示，尚未生成注入目标。本轮没有走到注入阶段；保留用户选择的快照，不再自动回滚或要求反复扫码。见 `validation/mac/mid-restore.25800.json`。
 
 实际小程序连接、表达式执行、真实 app-service.js 源码和页面/重启复查均未完成，25800 的 runtime_verified 保持 false。详见 `validation/mac/ready-check.25800.json`。目前只确认缺版本配置和 First 握手超时已解决，不能宣称已能正常调试。
 
