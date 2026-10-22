@@ -1,0 +1,35 @@
+{
+    "recorded_at": "2026-10-22T07:27:41.373219+00:00",
+    "first_version": "1.1.4",
+    "frida_native_version_string": "17.10.0",
+    "loader_sha256": "ac21f2fa51d76ac683eb3ebe39e8ddd7f74a8de088efcf61244655d917f1cd0d",
+    "binary_sha256": "9b68c1b32909ffc9a42269751ef0c5850a5c4b7732909e28ae8ac9c09f8f0974",
+    "hook_sha256": "359150eff319a35181b5cb3945f6b42ddf2c027f412e847c44e4ac8d1f25fa29",
+    "config_sha256": "2cae58763e9ec8720bb401d1c696860afb9179123498f0c4e9091b2dedc151e0",
+    "fix": "Emit first-hook-ready only after all hooks register successfully. Existing hook bodies unchanged.",
+    "observed_injections": [
+        {
+            "time_local": "2026-10-22T15:22:40+08:00",
+            "pid": 36800,
+            "message": "调试脚本已注入；调试已就绪：WMPF 版本 25800，已注入 1 个进程"
+        },
+        {
+            "time_local": "2026-10-22T15:25:04+08:00",
+            "pid": 42281,
+            "message": "调试脚本已注入；调试已就绪：WMPF 版本 25800，已注入 1 个进程"
+        }
+    ],
+    "regression_tests": {
+        "command": "python3 -m unittest discover -s tests -v",
+        "passed": 35,
+        "scope": "Native-boundary tests execute actual JS for mac 17078, 25755, 25800, Windows legacy/new module selection and flat/Arch configs; failure never reports ready. Other native versions not runtime-tested."
+    },
+    "blocker": "Repeated WeChat account-security relogin prompt while opening Mini Programs; First stopped and WeChat restarted for no-injection control.",
+    "runtime_verified": false,
+    "pending": [
+        "Runtime.evaluate == 2",
+        "real app-service.js source",
+        "normal mini program page",
+        "independent restart CDP recheck"
+    ]
+}

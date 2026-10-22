@@ -270,6 +270,8 @@ const main = () => {
     } else {
         winPatchLoadStart(base, config);
     }
+    // First 1.1.4 waits for this explicit acknowledgement before accepting injection.
+    send({ type: "first-hook-ready", version: config.Version, platform: PLATFORM, arch: ARCH });
 };
 
 main();

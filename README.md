@@ -1,17 +1,21 @@
 # First / WeChatAppEx 适配文件
 
-这里是维护源。mac arm64 / WMPF 7.25755 已有运行验证；7.25800 已完成静态定位并试装，尚未打通运行验证。共享 hook.js 未改动。Windows 目录暂为空，后续可以加入单独定位的配置；不能把 mac 偏移用于 Windows。
+这里是维护源。mac arm64 / WMPF 7.25755 有旧脚本的历史运行验证；7.25800 已完成静态定位和 First 1.1.4 注入，尚未完成完整 CDP 运行验证。共享 hook.js 仅增加所有钩子注册成功后的 `first-hook-ready` 握手，不改动现有钩子行为。Windows 目录暂为空，不能把 mac 偏移用于 Windows。
 
-2026-10-22：First 1.1.4 重新启动后已识别 25800，原“缺少匹配的偏移配置”错误消除；随后 Frida 附加 WeChatAppEx 时返回 PermissionDeniedError。当前微信恢复为腾讯官方 hardened runtime 签名，未含 get-task-allow，SIP 开启；历史记录显示此前成功环境使用过 ad-hoc 签名，微信更新后需单独诊断该前提。本次没有修改微信签名、权限或 SIP，25800 的 runtime_verified 保持 false。详见 validation/mac/runtime-attempt.25800.json。
+2026-10-22 首次尝试：增加 25800 配置后，原“缺少匹配的偏移配置”错误消除；随后 Frida 附加时返回 PermissionDeniedError。当时微信使用腾讯官方 hardened runtime 签名，未含 get-task-allow，SIP 开启。原始记录见 `validation/mac/runtime-attempt.25800.json`。
 
-后续经用户明确授权，已完整备份 `/Applications/WeChat.app` 到本地 `backups/signatures/20261022T065918Z/WeChat.app`，由用户在终端完成 WeChatAppEx 与五个 Helper 的 ad-hoc 重签名，六个目标签名均已独立验证。Framework arm64 摘要未变化，SIP 仍开启。微信停在“需在手机上完成登录”，尚未进行本轮 First 注入/CDP 验证，25800 仍未标记为运行验证通过；见 `validation/mac/signature-check.25800.json`。备份与签名脚本仅保存在本地忽略目录，不提交微信二进制。
+经用户明确授权，已完整备份 `/Applications/WeChat.app` 到本地 `backups/signatures/20261022T065918Z/WeChat.app`，由用户在终端完成 WeChatAppEx 与五个 Helper 的 ad-hoc 重签名，六个目标签名均已独立验证。Framework arm64 摘要未变化，SIP 仍开启；见 `validation/mac/signature-check.25800.json`。备份与签名脚本仅保存在本地忽略目录，不提交微信二进制。
+
+后续修复：First 1.1.4 要求明确的 `first-hook-ready` 消息，维护版旧脚本没有发送，导致附加成功后仍报“Hook 初始化超时（10 秒）”。补齐消息后，两个进程均被 First 判定为已注入、调试就绪。35 项测试通过，包含新旧 mac 配置与 Windows 顶层/Arch 格式的初始化注册回归，以及失败不能发送 ready 的检查。真实旧版 mac 和 Windows 未重新运行验证；25755 历史验证绑定旧 hook 摘要，不能作为当前 hook 的运行验证。
+
+当前仍存在微信反复提示“为了账号安全，请重新登录”的独立问题，正在进行停止 First、干净重启微信后的对照。实际小程序连接、表达式执行、真实 app-service.js 源码和页面/重启复查均未完成，25800 的 runtime_verified 保持 false。详见 `validation/mac/ready-check.25800.json`。
 
 ## 文件
 
 ```text
 hook.js                         共享 Frida 脚本，需调试时在此修改
-config/mac/addresses.25755.json  当前 mac 配置；新版本另存新文件，保留旧版
-config/mac/addresses.25800.json  新版 mac 候选；Frida 附加权限阻塞，尚未运行验证
+config/mac/addresses.25755.json  历史 mac 配置；运行记录绑定旧脚本
+config/mac/addresses.25800.json  已通过初始化；完整 CDP 运行验证待完成
 config/win/                     后续 Windows 配置
 gen_wmpf_config.py               静态定位 mac/arm64 偏移，生成 JSON/证据
 mac_scanner.py                   指令匹配、控制流和参数来源分析
@@ -32,19 +36,19 @@ Python 3.9+；mac 定位使用 Xcode Command Line Tools 的 lipo、xcrun/llvm-ob
 
 ```sh
 cd ~/projects/first_ex
-python3 install_first.py --version 25755          # 预览已验证旧版，不修改 App
-python3 install_first.py --version 25755 --apply  # 恢复旧版适配；仅适用于 WMPF 25755
+python3 install_first.py --version 25800 --allow-unverified          # 预览当前候选
+python3 install_first.py --version 25800 --allow-unverified --apply  # 安装候选；完整 CDP 待验证
 ```
 
 First 2 使用：
 
 ```sh
-python3 install_first.py --app '/Applications/First 2.app' --version 25755 --apply
+python3 install_first.py --app '/Applications/First 2.app' --version 25800 --allow-unverified --apply
 ```
 
 默认安装当前平台全部本地 JSON；--version 25755 可以只选择一个版本（可重复）。其他 App 中原有的 JSON 不会被删除。运行中的 First 需退出并重开以重新加载文件；安装成功只表示文件替换完成，不代表注入成功。
 
-当前 WMPF 25800 如需恢复本次候选适配，先预览再安装（仍需解决附加权限并完成运行验证）：
+当前 WMPF 25800 如需恢复本次候选适配，先预览再安装（仍需完成完整运行验证）：
 
 ```sh
 python3 install_first.py --version 25800 --allow-unverified
