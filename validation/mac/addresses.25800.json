@@ -7,11 +7,12 @@
     "config_sha256": "2cae58763e9ec8720bb401d1c696860afb9179123498f0c4e9091b2dedc151e0",
     "runtime_verified": false,
     "cdp_policy_source": "explicit-native-candidate",
-    "verification": "Hook readiness fix previously accepted in temporary ad-hoc environment. Original official signatures now restored; First stopped. Full CDP and original-app Mini Programs control pending.",
+    "verification": "Original official signatures verified after rollback. Relogin still reproduces without First injection; full CDP verification blocked by unresolved WeChat login abnormality. Offset/readiness fix installed; First stopped.",
     "evidence_files": [
         "validation/mac/runtime-attempt.25800.json",
         "validation/mac/signature-check.25800.json",
         "validation/mac/ready-check.25800.json",
-        "validation/mac/restore-check.25800.json"
+        "validation/mac/restore-check.25800.json",
+        "validation/mac/original-control.25800.json"
     ]
 }

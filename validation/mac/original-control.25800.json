@@ -1,0 +1,29 @@
+{
+    "recorded_at": "2026-10-22T08:20:22.774752+00:00",
+    "control": "Original official WeChat signatures, freshly launched after restoration; First stopped throughout.",
+    "phone_login_confirmed_by_user": true,
+    "action": "Discovery > Mini Programs",
+    "result": "Modal: 为了你的账号安全，请重新登录。",
+    "whole_app_deep_strict_verification": true,
+    "kernel_code_signature_observation": [
+        {
+            "pid": 56120,
+            "process": "WeChat",
+            "csops_flags": "0x22011311",
+            "hardened_runtime": true
+        },
+        {
+            "pid": 61116,
+            "process": "WeChatAppEx",
+            "csops_flags": "0x22011311",
+            "hardened_runtime": true
+        }
+    ],
+    "debug_servers_listening": false,
+    "local_diagnostics": "Recent application logs are binary .xlog files; not decoded. No matching WeChat crash report found.",
+    "conclusion": "Relogin prompt reproduced under restored original signatures without Frida injection. No causal attribution to re-signing or hook execution is established. Underlying login failure remains unresolved.",
+    "runtime_verified": false,
+    "first_state": "Stopped. Offset and readiness fixes remain installed; full CDP checks were not reached.",
+    "hook_sha256": "359150eff319a35181b5cb3945f6b42ddf2c027f412e847c44e4ac8d1f25fa29",
+    "config_sha256": "2cae58763e9ec8720bb401d1c696860afb9179123498f0c4e9091b2dedc151e0"
+}

@@ -24,7 +24,7 @@
         "passed": 35,
         "scope": "Native-boundary tests execute actual JS for mac 17078, 25755, 25800, Windows legacy/new module selection and flat/Arch configs; failure never reports ready. Other native versions not runtime-tested."
     },
-    "blocker": "Original official signatures restored and whole-app integrity independently verified. First stopped; original-app login and Mini Programs control pending. Full CDP not reached.",
+    "blocker": "After official signature restoration and whole-app validation, Mini Programs still triggers relogin with First stopped; see original-control.25800.json. Full CDP checks not reached.",
     "runtime_verified": false,
     "pending": [
         "Runtime.evaluate == 2",

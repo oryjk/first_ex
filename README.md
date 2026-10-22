@@ -8,7 +8,9 @@
 
 后续修复：First 1.1.4 要求明确的 `first-hook-ready` 消息，维护版旧脚本没有发送，导致附加成功后仍报“Hook 初始化超时（10 秒）”。补齐消息后，两个进程均被 First 判定为已注入、调试就绪。35 项测试通过，包含新旧 mac 配置与 Windows 顶层/Arch 格式的初始化注册回归，以及失败不能发送 ready 的检查。真实旧版 mac 和 Windows 未重新运行验证；25755 历史验证绑定旧 hook 摘要，不能作为当前 hook 的运行验证。
 
-停止 First 并彻底重启微信、扫码登录后的对照中，打开小程序入口仍出现“为了账号安全，请重新登录”。进一步检查发现：六个单独程序的签名通过校验，但修改嵌套签名后微信顶层整包 `codesign --verify --deep --strict` 报 `nested code is modified or invalid`；原始完整备份通过整包校验。用户已执行本地 `backups/signatures/20261022T065918Z/restore_original.sh` 恢复六个原始程序和两个签名资源，共八个文件。已独立确认八个原始哈希完全一致、微信整包深度严格校验通过、腾讯官方 hardened runtime 签名恢复；见 `validation/mac/restore-check.25800.json`。不要将本次只重签六个程序的实验作为推荐修复流程。登录异常的因果关系仍待官方签名下的入口对照确认。
+停止 First 并彻底重启微信、扫码登录后的对照中，打开小程序入口仍出现“为了账号安全，请重新登录”。进一步检查发现：六个单独程序的签名通过校验，但修改嵌套签名后微信顶层整包 `codesign --verify --deep --strict` 报 `nested code is modified or invalid`；原始完整备份通过整包校验。用户已执行本地 `backups/signatures/20261022T065918Z/restore_original.sh` 恢复六个原始程序和两个签名资源，共八个文件。已独立确认八个原始哈希完全一致、微信整包深度严格校验通过、腾讯官方 hardened runtime 签名恢复；见 `validation/mac/restore-check.25800.json`。不要将本次只重签六个程序的实验作为推荐修复流程。
+
+恢复官方签名、重新启动并扫码登录后，First 全程保持停止，点击小程序入口依然复现相同提示。内核 csops 显示微信和 WeChatAppEx 均使用 hardened runtime，整包签名校验仍通过。故不能把登录提示归因于 Frida 注入或重签名；该微信登录异常原因未确定，当前也没有取得正常小程序页面用于 CDP 验证。记录见 `validation/mac/original-control.25800.json`。
 
 实际小程序连接、表达式执行、真实 app-service.js 源码和页面/重启复查均未完成，25800 的 runtime_verified 保持 false。详见 `validation/mac/ready-check.25800.json`。目前只确认缺版本配置和 First 握手超时已解决，不能宣称已能正常调试。
 

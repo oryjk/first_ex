@@ -39,5 +39,5 @@
     "wechatappex_signature_flags": "0x10000(runtime)",
     "first_stopped": true,
     "runtime_verified": false,
-    "status": "Original official signatures independently verified; awaiting phone login for original-app Mini Programs control."
+    "status": "Original official signatures independently verified. Original-app Mini Programs control reproduced the same relogin prompt without First; see original-control.25800.json."
 }
