@@ -1,0 +1,32 @@
+{
+    "recorded_at": "2026-10-22T06:51:26.991183+00:00",
+    "first_version": "1.1.4",
+    "wmpf_version": 25800,
+    "binary_sha256": "9b68c1b32909ffc9a42269751ef0c5850a5c4b7732909e28ae8ac9c09f8f0974",
+    "hook_sha256": "762a754301884a9d5c8ecbbf1fc0bf69c94456fbbe41006f8eb3bc152d8c0b21",
+    "config_sha256": "2cae58763e9ec8720bb401d1c696860afb9179123498f0c4e9091b2dedc151e0",
+    "observation_method": "First native accessibility UI after independent quit/relaunch and Start Debug; read-only codesign, csrutil, ps",
+    "log_time_local": "2026-10-22T14:49:55+08:00",
+    "observed": {
+        "config_lookup": "recognized macOS WMPF 25800, PID 20284",
+        "attach_error": "PermissionDeniedError: unable to access process with pid 20284 from the current user account",
+        "engine_stopped": true,
+        "target_user": "carlwang",
+        "target_uid": 501,
+        "sip": "enabled",
+        "signature_flags": "0x10000(runtime)",
+        "signature_authority": "Developer ID Application: Tencent Mobile International Limited (5A4RE8SF68)",
+        "signature_timestamp_local": "2026-10-12T18:37:10+08:00",
+        "get_task_allow": false
+    },
+    "inference": "Official hardened runtime signature is consistent with attach denial; prior 25755 success used ad-hoc signatures. Re-signing was not attempted, so causality is not runtime-confirmed.",
+    "runtime_verified": false,
+    "checks_not_reached": [
+        "hook execution",
+        "Runtime.evaluate(1+1) == 2",
+        "Debugger.getScriptSource real app-service.js",
+        "mini program page and independent restart"
+    ],
+    "installation_backup": "backups/installed/20261022T064935Z-c53f45b79daf",
+    "boundaries": "No WeChat signature, SIP, network, or permission changes; shared maintained hook unchanged."
+}

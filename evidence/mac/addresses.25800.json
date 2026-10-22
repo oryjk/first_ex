@@ -1,0 +1,44 @@
+{
+    "pretty_strings": [
+        "0xa2b8a2e"
+    ],
+    "xrefs": [
+        "0x57776ec"
+    ],
+    "boundary_method": "bounded prologue + reachable CFG + argument identity; not a symbol table",
+    "module_vmaddr": "0x0",
+    "guard": {
+        "hops": [
+            56,
+            1520,
+            16
+        ],
+        "scene": 456,
+        "mode": 724,
+        "url": 416,
+        "guard_pc": 91715744,
+        "first_load_pc": 91715712,
+        "boolean_pc": 91715708,
+        "this_register": 19,
+        "debug_register": 20,
+        "function_start": 91715084,
+        "xref": 91715308
+    },
+    "limitations": [
+        "arm64 only",
+        "adjacent ADRP+ADD only",
+        "three-hop guard signature only",
+        "libc++ alternate string layout only",
+        "prologue search 0x800 bytes / CFG window 0x4000 bytes",
+        "static analysis does not prove CDP runtime behavior"
+    ],
+    "Version": 25800,
+    "platform": "mac",
+    "architecture": "arm64",
+    "binary_sha256": "9b68c1b32909ffc9a42269751ef0c5850a5c4b7732909e28ae8ac9c09f8f0974",
+    "hook_sha256": "762a754301884a9d5c8ecbbf1fc0bf69c94456fbbe41006f8eb3bc152d8c0b21",
+    "config_sha256": "2cae58763e9ec8720bb401d1c696860afb9179123498f0c4e9091b2dedc151e0",
+    "runtime_verified": false,
+    "cdp_policy_source": "explicit-native-candidate",
+    "verification": "pending runtime CDP validation"
+}

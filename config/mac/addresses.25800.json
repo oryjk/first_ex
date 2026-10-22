@@ -1,0 +1,15 @@
+{
+    "Version": 25800,
+    "Arch": {
+        "arm64": {
+            "LoadStartHookOffset": "0x577760c",
+            "LoadStartHookOffset2": "0x577760c",
+            "StructOffset": 1520,
+            "FirstHopOffset": 56,
+            "SceneOffset": 456,
+            "WebSocketURLStringOffset": 416,
+            "RemoteDebugModeOffset": 724,
+            "CDPFilterHookOffset": null
+        }
+    }
+}

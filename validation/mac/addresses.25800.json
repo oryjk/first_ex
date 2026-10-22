@@ -1,0 +1,14 @@
+{
+    "Version": 25800,
+    "platform": "mac",
+    "architecture": "arm64",
+    "binary_sha256": "9b68c1b32909ffc9a42269751ef0c5850a5c4b7732909e28ae8ac9c09f8f0974",
+    "hook_sha256": "762a754301884a9d5c8ecbbf1fc0bf69c94456fbbe41006f8eb3bc152d8c0b21",
+    "config_sha256": "2cae58763e9ec8720bb401d1c696860afb9179123498f0c4e9091b2dedc151e0",
+    "runtime_verified": false,
+    "cdp_policy_source": "explicit-native-candidate",
+    "verification": "First recognized WMPF 25800; Frida attach blocked by PermissionDeniedError before hook execution; CDP validation pending",
+    "evidence_files": [
+        "validation/mac/runtime-attempt.25800.json"
+    ]
+}
